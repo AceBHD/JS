@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 循环外面定义 YE 为余额变量
+        let YE = 0
+        while (true) {
+            // 这里定义 x 为操作数
+            let x = +prompt(`请输入需要的操作:
+            1.存钱
+            2.取钱
+            3.查看余额
+            4.退出`)
+            // x === 1 || x === 2 || x === 3 || x === 4
+            // 判断输入数 x 大于1并且x小于4 才能继续执行 否则报错
+            if (x >= 1 && x <= 4) {
+                // 当x等于1时执行
+                if (x === 1) {
+                    // 定义cr为存钱变量
+                    let cq = +prompt('请输入您要存入的额度:')
+                    YE = YE + cq
+                    alert(`您的现金已经存入`)
+                }
+                // 当x等于2时执行
+                if (x === 2) {
+                    // 定义qq为取钱变量
+                    let qq = +prompt('请输入您要取出的额度:')
+                    // 判断 如果取出的钱大于余额则提示报错 符合条件通过
+                    if (qq > YE) {
+                        alert('您的余额不足')
+                    } else {
+                        YE = YE - qq
+                        alert('您的余额已经取出')
+                    }
+                }
+                // 当x等于3时显示余额
+                if (x === 3) {
+                    alert(`您的余额为:${YE}`)
+                }
+                // 当x等于4时退出循环
+                if (x === 4) {
+                    break
+                }
+            } else {
+                alert(`您的输入错误,请重新输入`)
+            }
+        }
+    </script>
+</body>
+
+</html>
